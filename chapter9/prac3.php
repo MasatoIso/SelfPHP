@@ -11,6 +11,7 @@ if (isset($_POST['title'])) {
 
     try {
         $db = getDb();
+        // 名前なしパラメータを使用する　LIKE　
         $stmt = $db->prepare('SELECT * FROM book WHERE title LIKE ?');
         $stmt->bindValue(1, '%' .$_POST['title']. '%');
         $stmt->execute();
